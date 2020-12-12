@@ -8,14 +8,20 @@ from direct.gui.OnscreenText import OnscreenText
 import panda3d
 import threading
 import tests
+import tts
+import player
+import conversion
 
 
 class Speech():
     def __init__(self):
         self.fs = 44100
         self.second = 2
+        self.tts = tts.TTS()
+        self.conv = conversion.Conversion()
 
-    def record(self, textObject, isTalk):
+
+    def record(self, textObject, isTalk , textObjectGhost):
         record_voice = sounddevice.rec(int(self.second * self.fs), samplerate=self.fs, channels=1, dtype='int16')
         sounddevice.wait()
         write("output.wav", self.fs, record_voice)
@@ -40,11 +46,8 @@ class Speech():
 
         response = client.recognize(config=config, audio=audio)
         for result in response.results:
-            string = format(result.alternatives[0].transcript) + "\nConfidence:" + format(result.alternatives[0].confidence)
-            if string:
-                textObject.setText(string)
-            else:
-                textObject.setText('Please Speak Again')
-
+            string = format(result.alternatives[0].transcript)
+            textObject.setText("Player: \n" + string)
+            self.conv.flaw(string, textObjectGhost)
         isTalk.change()
         return
