@@ -15,6 +15,7 @@ import threading
 import tests
 import testPlayer
 
+
 keymap = {
     "up": False,
     "down": False,
@@ -32,13 +33,17 @@ class MyApp(ShowBase):
 
     def __init__(self):
         ShowBase.__init__(self)
+        self.loadSound()
         self.x = 0
         self.y = 0
         self.sp = speech.Speech()
         self.isTrue = tests.Bool()
         #self.initCollision()
         #self.loadLevel()
-        #self.initPlayer()
+        #self.initPlayer(s)
         self.disableMouse()
+
+
+
 
 

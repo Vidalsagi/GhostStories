@@ -13,6 +13,12 @@ import player
 import conversion
 
 
+path = os.getcwd()
+path_up=path.split('GhostStories')[0]
+credential_path = path_up+"SpeechProcess.json"
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credential_path
+
+
 class Speech():
     def __init__(self):
         self.fs = 44100
@@ -26,8 +32,7 @@ class Speech():
         sounddevice.wait()
         write("output.wav", self.fs, record_voice)
 
-        credential_path = "C:\\Users\\Sagi\\Desktop\\Code\\SpeechProcess-dbe0d5614ee0.json"
-        os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credential_path
+
 
         client = speech.SpeechClient()
 
