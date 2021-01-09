@@ -1,17 +1,10 @@
 import sounddevice
-import scipy
 from scipy.io.wavfile import write
 import io
 import os
 from google.cloud import speech
-from direct.gui.OnscreenText import OnscreenText
-import panda3d
-import threading
-import tests
-import tts
-import player
 import conversion
-
+import tts
 
 path = os.getcwd()
 path_up=path.split('GhostStories')[0]
@@ -22,20 +15,16 @@ os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credential_path
 class Speech():
     def __init__(self):
         self.fs = 44100
-        self.second = 2
+        self.second = 3
         self.tts = tts.TTS()
         self.conv = conversion.Conversion()
 
 
-    def record(self, textObject, isTalk , textObjectGhost):
+    def record(self, textObject, isTalk , textObjectGhost,textObjectConv, modelArr):
         record_voice = sounddevice.rec(int(self.second * self.fs), samplerate=self.fs, channels=1, dtype='int16')
         sounddevice.wait()
         write("output.wav", self.fs, record_voice)
-
-
-
         client = speech.SpeechClient()
-
         file_name = os.path.join(
             os.path.dirname(__file__),
             'output.wav')
@@ -53,6 +42,6 @@ class Speech():
         for result in response.results:
             string = format(result.alternatives[0].transcript)
             textObject.setText("Player: \n" + string)
-            self.conv.flaw(string, textObjectGhost)
+            self.conv.flaw(string, textObjectGhost, textObjectConv, modelArr)
         isTalk.change()
         return

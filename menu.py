@@ -1,15 +1,8 @@
-import direct.directbase.DirectStart
-from direct.gui.OnscreenText import OnscreenText
 from direct.gui.DirectGui import *
-import testPlayer
-
-from panda3d.core import TextNode
-from panda3d.core import loadPrcFileData
 from direct.gui.OnscreenImage import OnscreenImage
+from panda3d.core import TextNode
 from panda3d.core import WindowProperties
-from direct.showbase.Loader import Loader
-import player
-import threading
+import testPlayer
 
 # Add some text
 
@@ -21,10 +14,6 @@ props.setSize(w, h)
 
 base.win.requestProperties(props)
 
-
-#sound = player.Player()
-#t2 = threading.Thread(target=sound.play, args=["C:\\Users\\Dudi\\PycharmProjects\\pythonProject1\\ThemeMusic.wav"])
-#t2.start()
 
 isClicked = False
 imageObject = OnscreenImage(image='Menu-Image.jpg', pos=(-0.00, 0, -0.03),scale=(1.01, 1, 1.2))
