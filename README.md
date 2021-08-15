@@ -1,4 +1,4 @@
-####**GhostStories**
+####GhostStories
  ##Python Project
 
 #Escape room style game
