@@ -11,4 +11,4 @@
 This project was created by Vidal Sagi and Dudi Cohen
 
 
-[![GhostStories](https://i.ytimg.com/vi/zWh3CShX_do/maxresdefault.jpg)](https://www.youtube.com/watch?v=q3JLO-dTZcs "Watch GhostStories")
+[![GhostStories](https://i.pinimg.com/originals/12/07/76/120776c75365ad9f61e25b503b803313.jpg)](https://www.youtube.com/watch?v=q3JLO-dTZcs "Watch GhostStories")
