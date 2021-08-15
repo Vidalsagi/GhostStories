@@ -1,7 +1,7 @@
-####GhostStories
- ##Python Project
+ # GhostStories
+## Python Project
 
-#Escape room style game
+# Escape room style game
 - Based on Text to Speech, Speech to Text
 - 3D game, used Panda3D
 - 3D models created and edited with Adobe Photoshop and Blender
