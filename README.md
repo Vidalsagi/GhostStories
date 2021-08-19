@@ -1,5 +1,5 @@
  # GhostStories
-#### Python Project
+#### Python Project - PyCharm
 
 ### Escape room style game
 - Based on Text to Speech, Speech to Text
